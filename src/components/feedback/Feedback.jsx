@@ -1,5 +1,6 @@
-import { css } from '@emotion/css';
-import { stylesList } from './styles';
+import Statistics from './Statistics';
+import FeedbackOptions from './FeedbackOptions';
+import Section from './Section';
 
 const { Component } = require('react');
 
@@ -46,90 +47,3 @@ export class Feedback extends Component {
     );
   }
 }
-
-const Statistics = props => {
-  const { good, neutral, bad, total, positivePercentage } = props;
-  return !!good || !!neutral || !!bad ? (
-    <ul
-      className={css`
-        ${stylesList.statisticsList}
-      `}
-    >
-      <li className="stat__item">
-        Good: <span>{good}</span>
-      </li>
-      <li className="stat__item">
-        Neutral: <span>{neutral}</span>
-      </li>
-      <li className="stat__item">
-        Bad: <span>{bad}</span>
-      </li>
-      <li className="stat__item">
-        Total: <span>{total}</span>
-      </li>
-      <li className="stat__item">
-        Positive feedback: <span>{positivePercentage}%</span>
-      </li>
-    </ul>
-  ) : (
-    <p
-      className={css`
-        ${stylesList.message}
-      `}
-    >
-      "There is no feedback"
-    </p>
-  );
-};
-
-const FeedbackOptions = props => {
-  const { onLeaveFeedback } = props;
-  return (
-    <div
-      className={css`
-        ${stylesList.btnBox}
-      `}
-    >
-      <button
-        className={css`
-          ${stylesList.btn}
-        `}
-        onClick={onLeaveFeedback}
-      >
-        Good
-      </button>
-      <button
-        className={css`
-          ${stylesList.btn}
-        `}
-        onClick={onLeaveFeedback}
-      >
-        Neutral
-      </button>
-      <button
-        className={css`
-          ${stylesList.btn}
-        `}
-        onClick={onLeaveFeedback}
-      >
-        Bad
-      </button>
-    </div>
-  );
-};
-
-const Section = props => {
-  const { title, children } = props;
-  return (
-    <div>
-      <h2
-        className={css`
-          ${stylesList.titleStyle}
-        `}
-      >
-        {title}
-      </h2>
-      {children}
-    </div>
-  );
-};

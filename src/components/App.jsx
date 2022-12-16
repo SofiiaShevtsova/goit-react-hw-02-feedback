@@ -1,4 +1,4 @@
-import { Feedback } from './feedback/Feedback';
+import { Feedback } from './Feedback/Feedback';
 
 export const App = () => {
   return (
@@ -8,6 +8,7 @@ export const App = () => {
         flexDirection: 'column',
         justifyContent: 'flex-start',
         gap: '50px',
+        margin: '0 auto',
         width: '500px',
         padding: '20px',
         textAlign: 'center',

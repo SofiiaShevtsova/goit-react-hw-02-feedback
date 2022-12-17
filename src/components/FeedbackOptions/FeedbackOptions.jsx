@@ -28,6 +28,7 @@ const FeedbackOptions = props => {
               ${btn}
             `}
             onClick={onLeaveFeedback}
+            key={elem}
           >
             {elem.toUpperCase()}
           </button>

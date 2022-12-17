@@ -1,8 +1,11 @@
 import { css } from '@emotion/css';
+import PropTypes from 'prop-types';
+
+import { NotificationMessage } from 'components/NotificationMessage/NotificationMessage';
 
 const Statistics = props => {
   const { good, neutral, bad, total, positivePercentage } = props;
-  return !!good || !!neutral || !!bad ? (
+  return total > 0 ? (
     <ul
       className={css`
         display: flex;
@@ -32,15 +35,16 @@ const Statistics = props => {
       </li>
     </ul>
   ) : (
-    <p
-      className={css`
-        font-size: 24px;
-        color: rgb(150, 50, 50);
-      `}
-    >
-      "There is no feedback"
-    </p>
+    <NotificationMessage message={"'There is no feedback'"} />
   );
+};
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.string.isRequired,
 };
 
 export default Statistics;
